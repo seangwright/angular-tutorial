@@ -23,23 +23,23 @@
     <div class="block">
         <label>Name:</label>
         <input type="text" data-ng-model="vm.input" />
-        <input type="button" value="Update Name" data-ng-click="vm.updateName()" />
+        <input type="button" value="Update Name" data-ng-click="vm.updateName(vm.currentId)" />
         <br />
-        <input type="button" value="Reset" data-ng-click="vm.resetName()" />
+        <input type="button" value="Reset" data-ng-click="vm.resetNames()" />
     </div>
 
-    <div class="block">
+    <div class="block" data-ng-repeat="person in vm.people">
         <div>
-            Your name is <span class="data-field" 
-                               data-ng-class="{modified: vm.isNameModified()}">{{vm.name}}</span>
-            <div data-ng-non-bindable class="tip">Using angular expressions {{ }}</div>
-        </div>
-
-        <div>
-            Your name is <span class="data-field" 
-                               data-ng-class="{modified: vm.isNameModified()}" 
-                               data-ng-bind="vm.name"></span>
-            <div class="tip">Using angular directive 'ng-bind'</div>
+            <span class="data-field">
+                {{person.id}}
+            </span>
+            <span class="data-field" 
+                               data-ng-class="{modified: person.isModified}">
+                {{person.name}}
+            </span>
+            <span>
+                <input type="button" value="Edit" data-ng-click="vm.editPerson(person.id)" />
+            </span>
         </div>
     </div>
 
