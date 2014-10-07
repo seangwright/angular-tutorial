@@ -17,22 +17,22 @@
         <![endif]-->
 </head>
 
-<body data-ng-app="">
+<body data-ng-controller="wvDemoController">
     <h1>WV Demo App</h1>
 
     <div class="block">
         <label>Name:</label>
-        <input type="text" data-ng-model="name" />
+        <input type="text" data-ng-model="model.name" />
     </div>
 
     <div class="block">
         <div>
-            Your name is <span>{{name}}</span>
+            Your name is <span>{{model.name}}</span>
             <div data-ng-non-bindable class="tip">Using angular expressions {{ }}</div>
         </div>
 
         <div>
-            Your name is <span data-ng-bind="name"></span>
+            Your name is <span data-ng-bind="model.name"></span>
             <div class="tip">Using angular directive 'ng-bind'</div>
         </div>
     </div>
