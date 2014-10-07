@@ -1,19 +1,7 @@
 (function () {
     'use strict';
     
-    /*
-        We want to get the controllers module and add our controller to it
-    */
-    
     var wvControllersModule = angular.module('wv.controllers');
-    
-    /*
-        Notice we didn't use this syntax
-        
-        var wvApp = angular.module('wv', []);
-        
-        because this creates modules and we want to GET a module.
-    */
     
     wvControllersModule.controller('demoController', demoController);
     
@@ -22,14 +10,35 @@
     function demoController($scope) {
         var vm = this;
         
-        vm.name = "Elmo";
+        // View Model Properties
         
-        /*
-            var vm = this; allows us to not attach the view model data to the $scope
-            and only use the $scope object for specific things like $watch
-            
-            Note: the vm variable declared in the controller is a naming convention
-            and is not required to match the vm in the .html template file
-        */
+        vm.name = "Elmo";
+        vm.nameTemp = "";
+        vm.input = "";
+        
+        // View Model Methods
+        
+        vm.updateName = updateName;
+        vm.isNameModified = isNameModified;
+        vm.resetName = resetName;
+        
+        function updateName() {
+            if(vm.nameTemp === "") {
+                vm.nameTemp = vm.name;
+            }
+            vm.name = vm.input;
+        }
+        
+        function isNameModified() {
+            if(vm.nameTemp !== "") {
+                return true;
+            }
+            return false;
+        }
+        
+        function resetName() {
+            vm.name = vm.nameTemp;
+            vm.nameTemp = "";
+        }
     }
 }());

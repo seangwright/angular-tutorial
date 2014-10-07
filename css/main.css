@@ -61,11 +61,14 @@ textarea {
    Author's custom styles
    ========================================================================== */
 h1 { margin: 10px; }
-.block { padding: 10px; margin: 10px; border: 1px solid black; width: 20em; }
+input[type="button"] { margin: 5px; padding: 5px; }
+.block { padding: 10px; margin: 10px; border: 1px solid black; width: 30em; }
+.data-field { padding: 2px; }
 .form {  }
 .results {  }
 .tip { font-size: .7em; padding: 2px; color: green; }
 .warning { font-size: .7em; padding: 2px; color: red; }
+.modified { background-color: yellow; }
 
 
 
